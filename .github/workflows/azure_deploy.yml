@@ -5,7 +5,7 @@ name: DeployWidgetApp
 env:
   RG_NAME: rg-widget-app
   LOCATION: eastus2
-  SCRIPT_URI: https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script/build.ps1
+  SCRIPT_URI: https://raw.githubusercontent.com/acampb/devopsbootcampb/master/script/build.ps1
 
 jobs:
 

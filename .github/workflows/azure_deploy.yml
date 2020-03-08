@@ -1,18 +1,23 @@
 on: [push]
 
-name: AzureLoginSample
+name: DeployWidgetApp
+
+env:
+  RG_NAME: rg-widget-app
+  LOCATION: eastus2
 
 jobs:
 
-  build-and-deploy:
+  deploy-to-azure:
     runs-on: ubuntu-latest
     steps:
-    
+    - name: authenticate to Azure
+
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
+
     - run: |
-        az group list -o table
-    
+        az group create --name $RG_NAME --location $LOCATION
+
     - run: echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

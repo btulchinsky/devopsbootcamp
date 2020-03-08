@@ -27,7 +27,8 @@ jobs:
         for SERVER in $(az vm list --resource-group $RG_NAME --query "[].name" -o tsv)
         do
           echo "pushing to $SERVER"
+          az vm extension set --resource-group $RG_NAME --vm-name $SERVER --name customScriptExtension --publisher Microsoft.Compute --version 1.10 --settings script/build-config.json
         done
 
-        - run: |
+    - run: |
         echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

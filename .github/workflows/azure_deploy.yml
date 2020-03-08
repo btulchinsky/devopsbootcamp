@@ -14,3 +14,5 @@ jobs:
     
     - run: |
         az group list -o table
+    
+    - run: echo GITHUB_REPOSITORY

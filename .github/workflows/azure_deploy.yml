@@ -13,13 +13,15 @@ jobs:
     steps:
 
     - uses: azure/login@v1
+    - uses: actions/checkout@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - run: |
+        ls -a
         az group create --name $RG_NAME --location $LOCATION
 
     - run: |
-        az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
+        az group deployment create -g $RG_NAME --template-file $GITHUB_WORKSPACE/arm_template/webservers.deploy.json
 
     - run: |
         echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

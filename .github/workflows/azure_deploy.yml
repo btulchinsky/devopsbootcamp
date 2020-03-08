@@ -15,4 +15,4 @@ jobs:
     - run: |
         az group list -o table
     
-    - run: echo $GITHUB_REPOSITORY
+    - run: echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

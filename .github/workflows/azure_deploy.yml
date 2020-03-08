@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: azure/login@v1
     - uses: actions/checkout@v2
+    - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
     - run: |
         ls -a
         az group create --name $RG_NAME --location $LOCATION

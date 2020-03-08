@@ -5,7 +5,7 @@ name: DeployWidgetApp
 env:
   RG_NAME: rg-widget-app
   LOCATION: eastus2
-  SCRIPT_URI: https://raw.githubusercontent.com/acampb/devopsbootcampb/master/script/build.ps1
+  SCRIPT_URI: https://raw.githubusercontent.com/acampb/devopsbootcamp/master/script/build.ps1
 
 jobs:
 
@@ -31,7 +31,7 @@ jobs:
         for SERVER in $(az vm list --resource-group $RG_NAME --query "[].name" -o tsv)
         do
           echo "pushing to $SERVER"
-          az vm extension set --resource-group $RG_NAME --vm-name $SERVER --name customScriptExtension --publisher Microsoft.Compute --version 1.10 --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/acampb/devopsbootcampb/master/script/build.ps1"],"commandToExecute": "powershell.exe -File build.ps1"}'
+          az vm extension set --resource-group $RG_NAME --vm-name $SERVER --name customScriptExtension --publisher Microsoft.Compute --version 1.10 --protected-settings '{"fileUris": ["$SCRIPT_URI"],"commandToExecute": "powershell.exe -File build.ps1"}'
         done
 
 

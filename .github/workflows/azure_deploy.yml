@@ -17,15 +17,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: create resource group
     - run: |
         az group create --name $RG_NAME --location $LOCATION
 
-    - name: arm template deployment
     - run: |
         az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
 
-    - name: execute custom script extension
     - run: |
         for SERVER in $(az vm list --resource-group $RG_NAME --query "[].name" -o tsv)
         do

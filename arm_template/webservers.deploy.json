@@ -183,7 +183,7 @@
 			"name": "[parameters('webServerNames')[copyIndex()]]",
 			"location": "[resourceGroup().location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('webServerNames')[copyIndex()], 'nic') )]",
+				"[resourceId('Microsoft.Network/networkInterfaces', concat('nic-', parameters('webServerNames')[copyIndex()]) )]",
 				"[resourceId('Microsoft.Compute/availabilitySets', parameters('webAvailSetName'))]"
 			],
 			"properties": {
@@ -209,7 +209,7 @@
 				"networkProfile": {
 					"networkInterfaces": [
 						{
-							"id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('webServerNames')[copyIndex()], 'nic') )]"
+							"id": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic-', parameters('webServerNames')[copyIndex()]))]"
 						}
 					]
 				},

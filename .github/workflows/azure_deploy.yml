@@ -18,6 +18,8 @@ jobs:
     - run: |
         az group create --name $RG_NAME --location $LOCATION
 
-
+    - run: |
+        az group deployment create -g $RG_NAME --template-file ./arm_template/webservers.deploy.json
+        
     - run: |
         echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

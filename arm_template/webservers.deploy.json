@@ -5,7 +5,7 @@
 		"webServerNames": {
 			"type": "array",
 			"defaultValue": [
-				"devops-web01"
+				"vm-wdgt-dev-1"
 			]
 		},
 		"webVmSize": {
@@ -14,31 +14,31 @@
 		},
 		"vnetName": {
 			"type": "string",
-			"defaultValue": "devops-vnet"
+			"defaultValue": "vnet-wdgt-dev"
 		},
 		"webAvailSetName": {
 			"type": "string",
-			"defaultValue": "devops-web-as"
+			"defaultValue": "as-wdgt-dev"
 		},
 		"webLbDnsName": {
 			"type": "string",
-			"defaultValue": "devops-is-awesome"
+			"defaultValue": "widget-dev"
 		},
 		"webLbName": {
 			"type": "string",
-			"defaultValue": "devops-lb"
+			"defaultValue": "lb-wdgt-dev"
 		},
 		"webLbIpName": {
 			"type": "string",
-			"defaultValue": "devops-lb-ip"
+			"defaultValue": "ip-wdgt-dev"
 		},
 		"webNsgName": {
 			"type": "string",
-			"defaultValue": "devops-web-nsg"
+			"defaultValue": "nsg-wdgt-dev"
 		},
 		"adminUsername": {
 			"type": "string",
-			"defaultValue": "devopsuser"
+			"defaultValue": "devopsadmin"
 		},
 		"adminPassword": {
 			"type": "string",
@@ -105,7 +105,7 @@
 		{
 			"type": "Microsoft.Network/networkInterfaces",
 			"apiVersion": "2017-11-01",
-			"name": "[concat(parameters('webServerNames')[copyIndex()], 'nic')]",
+			"name": "[concat('nic-', parameters('webServerNames')[copyIndex()])]",
 			"copy": {
 				"name": "webServerNicCopy",
 				"count": "[length(parameters('webServerNames'))]"

@@ -24,4 +24,11 @@ jobs:
         az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
 
     - run: |
+        SERVERS = az vm list --resource-group $RG_NAME --query "[].name" -o tsv
+        for SERVER in "${SERVERS[@]}"
+        do
+          echo "pushing to $SERVER"
+        done
+
+        - run: |
         echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

@@ -18,11 +18,14 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - run: |
-        az group create --name $RG_NAME --location $LOCATION
+    #- run: |
+    #    az group create --name $RG_NAME --location $LOCATION
+
+    #- run: |
+    #    az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
 
     - run: |
-        az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
+        echo $SCRIPT_URI
 
     - run: |
         for SERVER in $(az vm list --resource-group $RG_NAME --query "[].name" -o tsv)
@@ -31,5 +34,4 @@ jobs:
           az vm extension set --resource-group $RG_NAME --vm-name $SERVER --name customScriptExtension --publisher Microsoft.Compute --version 1.10 --protected-settings '{"fileUris": ["$SCRIPT_URI"],"commandToExecute": "powershell.exe -File build.ps1"}'
         done
 
-    - run: |
-        echo $SCRIPT_URI
+

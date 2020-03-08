@@ -12,11 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: login
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: group
     - run: |
         az group create --name $RG_NAME --location $LOCATION
 
+    - name: test
     - run: echo https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/script

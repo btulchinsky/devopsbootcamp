@@ -14,7 +14,6 @@ jobs:
     steps:
 
     - name: Azure Login
-    #- uses: actions/checkout@v2
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -26,6 +25,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          ls -a
+          ls -R
           chmod +x /lab_1/list_resourcegroups.sh
           /lab_1/list_resourcegroups.sh

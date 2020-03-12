@@ -23,5 +23,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
+          ls -a $GITHUB_WORKSPACE
           chmod +x $GITHUB_WORKSPACE/lab_1/list_resourcegroups.sh
           $GITHUB_WORKSPACE/lab_1/list_resourcegroups.sh

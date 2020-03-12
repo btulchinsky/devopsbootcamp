@@ -1,11 +1,11 @@
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'lab_1/*'
 
 name: VerifyConnectivity
-
-env:
-  RG_NAME: rg-widget-app
-  LOCATION: eastus2
-  SCRIPT_URI: https://raw.githubusercontent.com/acampb/devopsbootcamp/master/script/build.ps1
 
 jobs:
 
@@ -26,5 +26,4 @@ jobs:
       with:
         inlineScript: |
           chmod +x ./lab_1/list_resourcegroups.sh
-          ls -lR
           ./lab_1/list_resourcegroups.sh

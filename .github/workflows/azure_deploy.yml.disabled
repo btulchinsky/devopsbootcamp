@@ -1,0 +1,37 @@
+on: [push]
+
+name: DeployWidgetApp
+
+env:
+  RG_NAME: rg-widget-app
+  LOCATION: eastus2
+  SCRIPT_URI: https://raw.githubusercontent.com/acampb/devopsbootcamp/master/script/build.ps1
+
+jobs:
+
+  deploy-to-azure:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    #- run: |
+    #    az group create --name $RG_NAME --location $LOCATION
+
+    #- run: |
+    #    az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
+
+    - run: |
+        echo $SCRIPT_URI
+
+    - run: |
+        for SERVER in $(az vm list --resource-group $RG_NAME --query "[].name" -o tsv)
+        do
+          echo "pushing to $SERVER"
+          az vm extension set --resource-group $RG_NAME --vm-name $SERVER --name customScriptExtension --publisher Microsoft.Compute --version 1.10 --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/acampb/devopsbootcamp/master/script/build.ps1"],"commandToExecute": "powershell.exe -File build.ps1"}'
+        done
+
+

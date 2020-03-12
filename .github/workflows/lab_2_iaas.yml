@@ -36,7 +36,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az group deployment create --resource-group $RG_NAME --template-file lab_2/iaas.deploy.json
+          az deployment group create --resource-group $RG_NAME --template-file lab_2/iaas.deploy.json
 
     #- run: |
     #    az group create --name $RG_NAME --location $LOCATION

@@ -25,4 +25,5 @@ jobs:
     #    az group deployment create -g $RG_NAME --template-file arm_template/webservers.deploy.json
 
     - run: |
-        /lab_1/list_resourcegroups.azcli
+        ls -a
+        ./lab_1/list_resourcegroups.azcli

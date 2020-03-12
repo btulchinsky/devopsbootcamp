@@ -25,6 +25,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          ls -R
-          chmod +x /lab_1/list_resourcegroups.sh
-          /lab_1/list_resourcegroups.sh
+          chmod +x ./lab_1/list_resourcegroups.sh
+          ls -lR
+          ./lab_1/list_resourcegroups.sh

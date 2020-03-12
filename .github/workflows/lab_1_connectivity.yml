@@ -26,4 +26,4 @@ jobs:
 
     - run: |
         ls -a
-        ./lab_1/list_resourcegroups.azcli
+        /bin/sh /lab_1/list_resourcegroups.sh

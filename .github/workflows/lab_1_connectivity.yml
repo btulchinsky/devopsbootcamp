@@ -5,7 +5,7 @@ on:
     paths:
       - 'lab_1/*'
 
-name: VerifyConnectivity
+name: Lab_1_VerifyConnectivity
 
 jobs:
 

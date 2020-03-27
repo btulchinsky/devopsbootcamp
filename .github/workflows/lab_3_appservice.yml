@@ -3,7 +3,7 @@ on: push
 name: Lab_3_AppService
 
 env:
-  AZURE_WEBAPP_NAME: drewlab-revealdemo
+  AZURE_WEBAPP_NAME: ctt-revealdemo
   AZURE_WEBAPP_PACKAGE_PATH: ./lab_3/reveal.js-3.9.2
 
 jobs:
@@ -29,6 +29,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+          ls -la
 
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v2

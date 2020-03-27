@@ -179,8 +179,8 @@ module.exports = grunt => {
   grunt.registerTask("package", ["default", "zip"]);
 
   // Serve presentation locally
-  // grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
-  grunt.registerTask("serve", ["connect"]);
+  grunt.registerTask("serve", ["connect", "watch"]);
+  //   grunt.registerTask("serve", ["connect"]);
 
   // Run tests
   grunt.registerTask("test", ["jshint", "qunit"]);

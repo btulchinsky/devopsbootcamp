@@ -108,6 +108,15 @@ module.exports = grunt => {
           open: true,
           useAvailablePort: true
         }
+      },
+      keepalive: {
+        options: {
+          port: port,
+          base: root,
+          keepalive: true,
+          open: true,
+          useAvailablePort: true
+        }
       }
     },
 
@@ -179,7 +188,10 @@ module.exports = grunt => {
   grunt.registerTask("package", ["default", "zip"]);
 
   // Serve presentation locally
-  grunt.registerTask("serve", ["connect", "watch"]);
+  grunt.registerTask("serve", ["connect:server", "watch"]);
+
+  // Server without watch
+  grunt.registerTask("serve_keepalive", ["connect:keepalive"]);
   //   grunt.registerTask("serve", ["connect"]);
 
   // Run tests

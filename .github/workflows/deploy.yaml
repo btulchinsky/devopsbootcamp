@@ -3,7 +3,8 @@ on: push
 name: nodejs_express_website
 
 env:
-  AZURE_WEBAPP_NAME: ctt-revealdemo
+  # AZURE_WEBAPP_NAME: ctt-revealdemo
+  AZURE_WEBAPP_NAME: bootcamp-ctt-test
   AZURE_WEBAPP_PACKAGE_PATH: ./lab_3
 
 jobs:

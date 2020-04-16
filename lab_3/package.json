@@ -1,0 +1,17 @@
+{
+  "name": "lab_3_deployment",
+  "version": "1.0.0",
+  "description": "Lab to deploy simple static web server to Azure Web Apps using GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barry Tulchinsky",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {}
+}

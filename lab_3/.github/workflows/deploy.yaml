@@ -18,10 +18,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Setup Node 10.x
+      - name: Setup Node 12.14.0
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: "12.4.0"
 
       - name: npm install, build, and test
         run: |

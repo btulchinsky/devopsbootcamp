@@ -1,0 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+p {
+  margin: 1em;
+}
+
+.bg-orange {
+  background-color: #ffa500;
+}
+
+.bg-orange-sc {
+  background-color: #f3590f;
+}

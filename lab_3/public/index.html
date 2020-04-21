@@ -12,10 +12,11 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="css/main.css" />
     <title>Softchoice GitHub Demo</title>
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
     <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="conatiner">
         <div class="navbar-header">
@@ -31,47 +32,69 @@
       </div>
     </nav> -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark static-top bg-orange-sc">
-        <div class="container">
-          <a href="#" class="navbar-brand"
-            ><img
-              height="100px"
-              src="img/softchoice_logo.png"
-              alt="Softchoice Logo"
-          /></a>
-        </div>
+      <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> -->
+      <nav
+        class="navbar navbar-expand-md navbar-dark fixed-top bg-orange-softchoice"
+      >
+        <!-- <div class="container"> -->
+        <a href="#" class="navbar-brand"
+          ><img
+            height="75px"
+            src="img/softchoice_logo.png"
+            alt="Softchoice Logo"
+        /></a>
+        <!-- </div> -->
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a href="#" class="nav-link"><span class="sr-only"></span>Home</a>
-            </li>
-            <li class="nav-item">
               <a href="#" class="nav-link"
-                ><span class="sr-only"></span>Bootcamp Info</a
+                >Home<span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"
-                ><span class="sr-only"></span>GitHub Resources</a
-              >
+              <a href="#" class="nav-link">Bootcamp Info</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">GitHub Resources</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
-    <footer>
-      <div>
-        <a href="https://www.softchoice.com/about-softchoice/contact-us">
-          Contact Us
-        </a>
+    <main role="main" class="flex-shrink-0">
+      <!-- <div class="container"></div> -->
+      <div class="container">
+        <h1 class="mt-5">Header goes here</h1>
+        <p class="lead">
+          Main text and introduction
+        </p>
+        <p>
+          Additional content
+        </p>
       </div>
-      <div>
-        <a href="https://www.softchoice.com/about-softchoice/who-we-are">
-          About Us
-        </a>
-      </div>
-      <div>
-        <a href="https://www.softchoice.com">Home</a>
+    </main>
+    <footer class="footer mt-auto py-3 fixed-bottom">
+      <!-- <footer class="page-footer"> -->
+      <!-- <footer> -->
+      <div class="container">
+        <!-- <ul class="nav">
+          <li class="nav-link active">
+            <a href="https://www.softchoice.com/about-softchoice/contact-us"
+              >Contact Us</a
+            >
+          </li>
+          <li class="nav-link active">
+            <a href="https://www.softchoice.com/about-softchoice/who-we-are">
+              About Us</a
+            >
+          </li>
+          <li class="nav-link active">
+            <a href="https://www.softchoice.com">
+              Home
+            </a>
+          </li>
+        </ul> -->
+        <!-- <span class="text-white">Footer</span> -->
       </div>
     </footer>
   </body>

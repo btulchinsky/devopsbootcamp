@@ -1,4 +1,4 @@
-html {
+/* html {
   box-sizing: border-box;
 }
 
@@ -6,6 +6,10 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+} */
+
+main > .container {
+  padding: 60px 15px 0;
 }
 
 p {
@@ -16,6 +20,19 @@ p {
   background-color: #ffa500;
 }
 
-.bg-orange-sc {
+.bg-orange-softchoice {
   background-color: #f3590f;
+}
+
+.footer {
+  background-color: #ffa500;
+}
+
+.footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+  /* width: 100%;
+  bottom: 0;
+  height: 60px;
+  line-height: 60px; */
 }

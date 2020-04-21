@@ -28,11 +28,20 @@ p {
   background-color: #ffa500;
 }
 
-.footer > .container {
-  padding-left: 15px;
-  padding-right: 15px;
-  /* width: 100%;
-  bottom: 0;
-  height: 60px;
-  line-height: 60px; */
+/* .footer > .container { */
+/* padding-left: 15px;
+  padding-right: 15px; */
+/* padding: 5px 5px; */
+/* width: 100%; */
+/* } */
+
+/* .footer > .container > ul { */
+/* width: 100%; */
+/* margin-left: auto;
+  margin-right: auto; */
+/* } */
+
+.footer > .container > ul > li {
+  margin-left: auto;
+  margin-right: auto;
 }

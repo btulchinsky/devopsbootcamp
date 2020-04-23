@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "type": "string",
+      "defaultValue": "lab3rg",
+      "metadata": {
+        "description": "Name of resource group to create"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "East US",
+      "allowedValues": [
+        "Central US",
+        "Easte US 2",
+        "East US",
+        "North Central US",
+        "South Central US",
+        "West US 2",
+        "West Central US",
+        "West US",
+        "Canada Central",
+        "Canada East",
+        "Brazil South",
+        "Mexico Central"
+      ],
+      "metadata": {
+        "description": "Resource group location. The current allowedValues are from the Americas region. You can view all the regions from https://azure.microsoft.com/en-us/global-infrastructure/locations/"
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2018-05-01",
+      "name": "[parameters('rgName')]",
+      "location": "[parameters('location')]",
+      "properties": {}
+    }
+  ]
+}

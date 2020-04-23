@@ -7,6 +7,10 @@ var app = express();
 
 app.use(express.static("public"));
 
+app.get("/test", (req, res) => {
+  res.send("Hello, World!");
+});
+
 app.listen(port, () => {
   process.stdout.write("Listening on port " + port);
 });

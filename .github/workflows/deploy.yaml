@@ -23,10 +23,14 @@ jobs:
         with:
           node-version: "12.4.0"
 
-      - name: npm install, build, and test
+      - name: npm install
         run: |
           cd ./lab_3
           npm install
+
+      - name: npm test
+        run: |
+          npm test
 
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v2

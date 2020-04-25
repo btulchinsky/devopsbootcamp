@@ -5,7 +5,8 @@
   "parameters": {
     "webAppName": {
       "type": "string",
-      "defaultValue" : "AzureLinuxApp",
+      // "defaultValue" : "sc-lab-3-test",
+      "defaultValue": "AzureLinuxApp",
       "metadata": {
         "description": "Base name of the resource such as web app name and app service plan "
       },

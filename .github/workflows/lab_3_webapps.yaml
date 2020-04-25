@@ -17,19 +17,19 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS2 }}
 
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Create resource group via ARM template
+      - name: Create resource group
         uses: azure/CLI@v1
         with:
           inlineScript: |
             # az deployment create --location
-            az group create --name ${RG_NAME} --location ${LOCATION}
+            az group create --name $RG_NAME --location $LOCATION
 
-      - name: Create Web App Service
+      - name: Create Web App Service via ARM template
         uses: azure/CLI@v1
         with:
           inlineScript: |

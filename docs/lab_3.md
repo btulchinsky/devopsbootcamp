@@ -1,10 +1,9 @@
 # Lab 3 - GitHub Actions
 
 - [Configure GitHub Actions](#Configure-GitHub-Actions)
-- [Deploy Application to Azure with GitHub Actions](#Deploy-Application-to-Azure-with-GitHub-Actions)
-- [Automate Application Re-Deployment of Changes](#Automate-Application-Re-Deployment-of-Changes)
-<!-- - [Scale Out Resources](#Scale-Out-Resources)
-- [Clean Up Resources](#Clean-Up-Resources) -->
+- [Fix Workflow Due to Failed Test TO BE REMOVED](#Fix-Workflow-Due-to-Failed-Test-TO-BE-REMOVED)
+- [Continuous Deployment of Changes](#Continuous-Deployment-of-Changes)
+- [Unit Testing](#Unit-Testing)
 
 ---
 
@@ -56,6 +55,8 @@ env:
 
 ![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
 
+---
+
 ## Fix Workflow Due to Failed Test (TO BE REMOVED)
 
 If you check the status of the Workflow, you will notice that the pipeline failed.
@@ -74,27 +75,37 @@ This is a simple node application that serves static html, but also acts as a se
 
 4. Navigate to **Actions** to observe the workflow. Notice that the test was successful and runs the Azure WebApp deployment task.
 
-## Deploy Application to Azure with GitHub Actions
-
-Consider addition of below
-
-> GitHub provides an action on GitHub marketplace to simplify deployments to Azure Web App application called `webapps-deploy`. For more information go [here](https://github.com/marketplace/actions/azure-webapp) for more information.
+---
 
 ## Continuous Deployment of Changes
+
+> GitHub provides an action on GitHub marketplace to simplify deployments to Azure Web App application called `webapps-deploy`. For more information go [here](https://github.com/marketplace/actions/azure-webapp) for more information.
 
 1. Navigate to **Code**, open the `lab_3/app/public` directory and open the `index.html` file.
 
 2. Find the Octodex image element (`img` tag) identified with the `id` attribute `octodex`.
 
-3) Go [here](https://octodex.github.com/) and copy the address of an Octodex that you like.
+> ![lab_3_workflow_continuous_deployment_01](images/lab_3_workflow_continuous_deployment_01.jpg)
 
-4) Update the `alt` and `src` attribute of the octodex `img` tag with description and copied address, respectively.
+3. Go [here](https://octodex.github.com/) and copy the address of an Octodex that you like.
 
-5) Enter a commit message and click `Commit changes`.
+4. Update the `alt` and `src` attribute of the octodex `img` tag with description and copied address, respectively.
 
-6) Navigate to **Actions** and observe the workflow.
+> ![lab_3_workflow_continuous_deployment_02](images/lab_3_workflow_continuous_deployment_02.jpg)
 
-7) When the workflow finished executing. Open your browser and refresh or open the `<Azure Web App name>.azurewebsites.net` website to observe the change in the application.
+5. Enter a commit message and click `Commit changes`.
+
+> ![lab_3_workflow_continuous_deployment_03](images/lab_3_workflow_continuous_deployment_03.jpg)
+
+6. Navigate to **Actions** and observe the workflow.
+
+> ![lab_3_workflow_continuous_deployment_04](images/lab_3_workflow_continuous_deployment_04.jpg)
+
+7. When the workflow finished executing. Open your browser and refresh or open the `<Azure Web App name>.azurewebsites.net` website to observe the change in the application.
+
+> ![lab_3_workflow_continuous_deployment_05_fullpage](images/lab_3_workflow_continuous_deployment_05_fullpage.jpg)
+
+---
 
 ## Unit Testing
 
@@ -128,7 +139,7 @@ We have deployed our application successfully due to no unit test errors. We wil
 
 > ![lab_3_workflow_unit_testing_06_emphasis](images/lab_3_workflow_unit_testing_06_emphasis.jpg)
 
-7. Notice that the `test pass message` was skipped, but the `test fail message` task did execute. This is because the `test fail message` has a conditional `if` conditional execution on Workflow failure.
+7. Notice that the `test pass message` was skipped, but the `test fail message` task did execute. This is because the `test fail message` has an `if` conditional execution on Workflow failure.
 
 ```yaml
 - name: test fail message

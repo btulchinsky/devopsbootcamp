@@ -76,6 +76,22 @@ This is a simple node application that serves static html, but also acts as a se
 
 ## Deploy Application to Azure with GitHub Actions
 
-GitHub provides an action on GitHub marketplace to simplify deployments to Azure Web App application called `webapps-deploy`. For more information go [here](https://github.com/marketplace/actions/azure-webapp) for more information.
+Consider addition of below
 
-## Automate Application Re-Deployment of Changes
+> GitHub provides an action on GitHub marketplace to simplify deployments to Azure Web App application called `webapps-deploy`. For more information go [here](https://github.com/marketplace/actions/azure-webapp) for more information.
+
+## Continuous Deployment of Changes
+
+1. Navigate to **Code**, open up the `lab_3/app/public` directory and open the `index.html` file.
+
+2. Find the Octodex image element (`img` tag) identified with the `id` attribute `octodex`.
+
+3. Go [here](https://octodex.github.com/) and copy the address of an Octodex that you like.
+
+4. Update the `alt` and `src` attribute of the octodex `img` tag with description and copied address, respectively.
+
+5. Enter a commit message and click `Commit changes`.
+
+6. Navigate to **Actions** and observe the workflow.
+
+7. When the workflow finished executing. Open your browser and refresh or open the `<Azure Web App name>.azurewebsites.net` website to observe the change in the application.

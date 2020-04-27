@@ -48,14 +48,14 @@ env:
 
 > ![lab_3_workflow_01](images/lab_3_workflow_01.jpg)
 
-8. Enter a commit message and click `Commit changes`
+8. Enter a commit message and click `Commit changes`.
 
 > ![lab_3_workflow_02](images/lab_3_workflow_02.jpg)
 
----
+The last commit to change the Azure Web App name causes a run of the Actions.
+
+![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
 
 ## Deploy Application to Azure with GitHub Actions
-
-The workflow we just creted is triggered by changes made to the files in the `lab_3/` directory. Let's trigger the workflow by changing the `readme.txt` file. Navigate to the `lab_3/
 
 ## Automate Application Re-Deployment of Changes

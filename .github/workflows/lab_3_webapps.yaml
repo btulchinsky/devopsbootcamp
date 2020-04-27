@@ -1,6 +1,11 @@
-on: push
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "lab_3/*"
 
-name: nodejs_express_website
+name: Lab_3_WebApps
 
 env:
   RG_NAME: lab3rg
@@ -17,7 +22,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS2 }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Checkout Code
         uses: actions/checkout@v2

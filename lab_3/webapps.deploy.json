@@ -6,7 +6,8 @@
     "webAppName": {
       "type": "string",
       // "defaultValue" : "sc-lab-3-test",
-      "defaultValue": "AzureLinuxApp",
+      // "defaultValue": "AzureLinuxApp",
+      "defaultValue": "bootcamp-ctt-test2",
       "metadata": {
         "description": "Base name of the resource such as web app name and app service plan "
       },

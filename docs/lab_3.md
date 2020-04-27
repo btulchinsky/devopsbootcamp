@@ -40,6 +40,22 @@ env:
 
 6. Add a short commit message and click `Commit new file`.
 
+7. We will also need to modify the ARM template for the Azure Web App resource creation to align with the unique name provided in the step 4.
+
+   Navigate to **Code**, open `lab_3/` directory, and open `webapps.deploy.json` file.
+
+   Update the `defaultValue` for the `webAppName` parameter to the unique name.
+
+> ![lab_3_workflow_01](images/lab_3_workflow_01.jpg)
+
+8. Enter a commit message and click `Commit changes`
+
+> ![lab_3_workflow_02](images/lab_3_workflow_02.jpg)
+
+---
+
 ## Deploy Application to Azure with GitHub Actions
+
+The workflow we just creted is triggered by changes made to the files in the `lab_3/` directory. Let's trigger the workflow by changing the `readme.txt` file. Navigate to the `lab_3/
 
 ## Automate Application Re-Deployment of Changes

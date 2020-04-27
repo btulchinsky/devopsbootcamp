@@ -8,11 +8,11 @@ on: push
 name: Lab_3_WebApps
 
 env:
-  RG_NAME: lab3rg
-  LOCATION: eastus
-  # RG_NAME: rg-lab-3
-  # LOCATION: eastus2
-  AZURE_WEBAPP_NAME: bootcamp-ctt-test
+  # RG_NAME: lab3rg
+  # LOCATION: eastus
+  RG_NAME: rg-lab-3
+  LOCATION: eastus2
+  AZURE_WEBAPP_NAME: bootcamp-ctt-test2
   AZURE_WEBAPP_PACKAGE_PATH: ./lab_3/app
 
 jobs:

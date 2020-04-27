@@ -56,11 +56,11 @@ env:
 
 ![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
 
-## Fix Workflow Due to Failed Test
+## Fix Workflow Due to Failed Test (TO BE REMOVED)
 
 If you check the status of the Workflow, you will notice that the pipeline failed.
 
-This is common to run simple unit tests to ensure that the code will at least deploy. In our case, we have an API that returns the wrong text. The test is expecting the text to be `Hello, World!`, while the API returned `Hello, World!!` - We have an extra exclamation mark (!).
+It is common to run simple unit tests to ensure that the code components work as expected. In our case, we have an API that returns the wrong text. The test is expecting the text to be `Hello, World!`, while the API returned `Hello, World!!` - We have an extra exclamation mark (!).
 
 Let's correct this error.
 
@@ -82,16 +82,61 @@ Consider addition of below
 
 ## Continuous Deployment of Changes
 
-1. Navigate to **Code**, open up the `lab_3/app/public` directory and open the `index.html` file.
+1. Navigate to **Code**, open the `lab_3/app/public` directory and open the `index.html` file.
 
 2. Find the Octodex image element (`img` tag) identified with the `id` attribute `octodex`.
 
-3. Go [here](https://octodex.github.com/) and copy the address of an Octodex that you like.
+3) Go [here](https://octodex.github.com/) and copy the address of an Octodex that you like.
 
-4. Update the `alt` and `src` attribute of the octodex `img` tag with description and copied address, respectively.
+4) Update the `alt` and `src` attribute of the octodex `img` tag with description and copied address, respectively.
 
-5. Enter a commit message and click `Commit changes`.
+5) Enter a commit message and click `Commit changes`.
 
-6. Navigate to **Actions** and observe the workflow.
+6) Navigate to **Actions** and observe the workflow.
 
-7. When the workflow finished executing. Open your browser and refresh or open the `<Azure Web App name>.azurewebsites.net` website to observe the change in the application.
+7) When the workflow finished executing. Open your browser and refresh or open the `<Azure Web App name>.azurewebsites.net` website to observe the change in the application.
+
+## Unit Testing
+
+We have deployed our application successfully due to no unit test errors. We will not introduce an error into the application.
+
+1. Navigate to **Code**, open the `lab_3/app/` directory and open the `index.js` file.
+
+> ![lab_3_workflow_unit_testing_01](images/lab_3_workflow_unit_testing_01_edit.jpg)
+
+2. Change the `Hello, World!` text in the service `/path` response. It can be any misspelling or a completely different text, as long as it is different.
+
+> ![lab_3_workflow_unit_testing_01_highlight](images/lab_3_workflow_unit_testing_01_edit_highlight.jpg)
+
+> ![lab_3_workflow_unit_testing_02_edit_errortext_highlight](images/lab_3_workflow_unit_testing_02_edit_errortext_highlight.jpg)
+
+3. Enter a commit message and click `Commit changes`.
+
+> ![lab_3_workflow_unit_testing_03](images/lab_3_workflow_unit_testing_03.jpg)
+
+4. Navigate to **Actions** to observe the Workflow. Which will fail.
+
+> ![lab_3_workflow_unit_testing_04](images/lab_3_workflow_unit_testing_04.jpg)
+
+> ![lab_3_workflow_unit_testing_05](images/lab_3_workflow_unit_testing_05.jpg)
+
+5. Click on the Workflow to take a look at the more granular tasks the Workflow is running and expand the `npm test` task.
+
+> ![lab_3_workflow_unit_testing_06](images/lab_3_workflow_unit_testing_06.jpg)
+
+6. Notice that the `API test` unit test failed and the `Deploy to Azure WebApp` was not skipped. This is the default behaviour.
+
+> ![lab_3_workflow_unit_testing_06_emphasis](images/lab_3_workflow_unit_testing_06_emphasis.jpg)
+
+7. Notice that the `test pass message` was skipped, but the `test fail message` task did execute. This is because the `test fail message` has a conditional `if` conditional execution on Workflow failure.
+
+```yaml
+- name: test fail message
+  if: failure()
+  run: |
+    echo "npm tests failed! please check your code"
+```
+
+This demonstrates some of the flexibility of GitHub Action Workflows. Click [here](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions) for more information on other constructs and Workflow syntax.
+
+8. Fix the Workflow by correcting the `lab_3/app/index.js` file with the proper text and commit the change.

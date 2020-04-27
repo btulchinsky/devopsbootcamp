@@ -2,7 +2,7 @@
 
 - [Create Azure Web App](#Create-Azure-Web-App)
 - [Configure GitHub Actions](#Configure-GitHub-Actions)
-- [Fix Workflow Due to Failed Test TO BE REMOVED](#Fix-Workflow-Due-to-Failed-Test-TO-BE-REMOVED)
+- [Run GitHub Actions](#Run-GitHub-Actions)
 - [Continuous Deployment of Changes](#Continuous-Deployment-of-Changes)
 - [Unit Testing](#Unit-Testing)
 
@@ -63,26 +63,6 @@ The workflow we just created is triggered by changes made to the files in the `l
 > Note: It is possible to find the URL in the Workflow's `Deploy to Azure WebApp` task's output
 
 > ![lab_3_workflow_view_application_01_emphasis](images/lab_3_workflow_view_application_01_emphasis.jpg)
-
----
-
-## Fix Workflow Due to Failed Test (TO BE REMOVED)
-
-If you check the status of the Workflow, you will notice that the pipeline failed.
-
-It is common to run simple unit tests to ensure that the code components work as expected. In our case, we have an API that returns the wrong text. The test is expecting the text to be `Hello, World!`, while the API returned `Hello, World!!` - We have an extra exclamation mark (!).
-
-Let's correct this error.
-
-1. Navigate to **Code**, open `lab_3/app/` directory, and open the `index.js` file.
-
-This is a simple node application that serves static html, but also acts as a service controller for the `/test` mapped path.
-
-2. The service returns a `200 OK` HTTP response code as well as some text. Notice the returned text was hard-coded with an two exclamation marks `Hello, World!!`, just like in our test. Edit and remove one of the exclamation marks so we only have one. The text should be `Hello, World!`.
-
-3. Enter a commit message and click `Commit changes`.
-
-4. Navigate to **Actions** to observe the workflow. Notice that the test was successful and runs the Azure WebApp deployment task.
 
 ---
 

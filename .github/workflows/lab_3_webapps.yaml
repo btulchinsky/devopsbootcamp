@@ -12,7 +12,8 @@ env:
   LOCATION: eastus
   # RG_NAME: rg-lab-3
   # LOCATION: eastus2
-  AZURE_WEBAPP_NAME: bootcamp-ctt-test
+  # AZURE_WEBAPP_NAME: bootcamp-ctt-test
+  AZURE_WEBAPP_NAME: AzureLinuxApp-softchoice-webapp
   AZURE_WEBAPP_PACKAGE_PATH: ./lab_3/app
 
 jobs:

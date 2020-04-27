@@ -1,9 +1,9 @@
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - "lab_3/*"
+on: push
+# push:
+#   branches:
+#     - master
+#   paths:
+#     - "lab_3/*"
 
 name: Lab_3_WebApps
 

@@ -52,10 +52,30 @@ env:
 
 > ![lab_3_workflow_02](images/lab_3_workflow_02.jpg)
 
-The last commit to change the Azure Web App name causes a run of the Actions.
+9. The last commit to change the Azure Web App name causes a run of the Workflow. Navigate to **Actions** to observe the workflow status.
 
 ![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
 
+## Fix Workflow Due to Failed Test
+
+If you check the status of the Workflow, you will notice that the pipeline failed.
+
+This is common to run simple unit tests to ensure that the code will at least deploy. In our case, we have an API that returns the wrong text. The test is expecting the text to be `Hello, World!`, while the API returned `Hello, World!!` - We have an extra exclamation mark (!).
+
+Let's correct this error.
+
+1. Navigate to **Code**, open `lab_3/app/` directory, and open the `index.js` file.
+
+This is a simple node application that serves static html, but also acts as a service controller for the `/test` mapped path.
+
+2. The service returns a `200 OK` HTTP response code as well as some text. Notice the returned text was hard-coded with an two exclamation marks `Hello, World!!`, just like in our test. Edit and remove one of the exclamation marks so we only have one. The text should be `Hello, World!`.
+
+3. Enter a commit message and click `Commit changes`.
+
+4. Navigate to **Actions** to observe the workflow. Notice that the test was successful and runs the Azure WebApp deployment task.
+
 ## Deploy Application to Azure with GitHub Actions
+
+GitHub provides an action on GitHub marketplace to simplify deployments to Azure Web App application called `webapps-deploy`. For more information go [here](https://github.com/marketplace/actions/azure-webapp) for more information.
 
 ## Automate Application Re-Deployment of Changes

@@ -34,47 +34,29 @@ The ARM template deployment will create a unique name for the Web App and return
 
 3. Replace all of the sample workflow code in the editor by pasting all the code you copied from `workflows-templates/lab_3_webapps.yaml`.
 
-4. Modify the Environment Variables section with the name of the Azure Resource Group to be creates, and the Azure Region to deploy the resources in as in Lab 2. We are also adding the name of our Azure Web App application and the Package Path to the application. Sele
-
-> Note: The Azure Web App application name needs to be globally unique within Azure due to DNS registration. An error will occur if the same Azure Web App name was already used.
+4. Modify the `AZURE_WEBAPP_NAME` variable to use the name of the Web App you created in the previous step.
 
 ```yaml
 env:
-  RG_NAME: rg-lab-3
-  LOCATION: eastus2
   AZURE_WEBAPP_NAME: azure-webapp-unique-name
   AZURE_WEBAPP_PACKAGE_PATH: ./lab_3/app
 ```
-
-> Note: If changing the `LOCATION variable`, ensure that you use the proper Azure Region name. You can list the available regions for your subscription by running this command `az account list-locations -o table` in Azure Cloud Shell.
 
 5. GitHub Actions files must be saved in a directory in your repo named `.github/workflows/`. The directory structure `.github/workflows/` should already exist in the path, name your workflow file `lab_3_webapps.yaml` and click `Start Commit`.
 
 6. Add a short commit message and click `Commit new file`.
 
-7. We will also need to modify the ARM template for the Azure Web App resource creation to align with the unique name provided in the step 4.
-
-   Navigate to **Code**, open `lab_3/` directory, and open `webapps.deploy.json` file.
-
-   Update the `defaultValue` for the `webAppName` parameter to the unique name.
-
-> ![lab_3_workflow_01](images/lab_3_workflow_01.jpg)
-
-8. Enter a commit message and click `Commit changes`.
-
-> ![lab_3_workflow_02](images/lab_3_workflow_02.jpg)
-
-9. The last commit to change the Azure Web App name causes a run of the Workflow. Navigate to **Actions** to observe the workflow status.
-
-![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
-
 ---
 
-## Viewing the application
+## Run GitHub Actions
 
-Once the deployment finishes. We can open the application.
+The workflow we just created is triggered by changes made to the files in the `lab_3/` directory. Let's make a change here to kick off the workflow. The `readme.txt` can be modified by simply adding a new line or some text. The act of committing this change to the `master` branch will instruct GitHub Actions to kick off our workflow.
 
-Open up a browser and go to `<Azure Web App name>.azurewebsites.net`. Replace `<Azure Web App name>` with the unique name.
+1. Navigate to **Code**, and browse to the `lab_3/readme.txt` file. Click the pencil icon to edit the file, and add a new line. Provide a commit message and commit your change.
+
+2. Navigate to **Actions** and you should see your `Lab_3_WebApp` workflow executing.
+
+3. When the Workflow successfully finishes, Open up a browser and go to `<Azure Web App name>.azurewebsites.net`. Replace `<Azure Web App name>` with the unique name.
 
 ![lab_3_workflow_continuous_deployment_00_fullpage](images/lab_3_workflow_continuous_deployment_00_fullpage.jpg)
 

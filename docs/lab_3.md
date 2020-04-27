@@ -1,5 +1,6 @@
 # Lab 3 - GitHub Actions
 
+- [Create Azure Web App](#Create-Azure-Web-App)
 - [Configure GitHub Actions](#Configure-GitHub-Actions)
 - [Fix Workflow Due to Failed Test TO BE REMOVED](#Fix-Workflow-Due-to-Failed-Test-TO-BE-REMOVED)
 - [Continuous Deployment of Changes](#Continuous-Deployment-of-Changes)
@@ -12,6 +13,18 @@
 The third lab will deploy a NodeJS Web App using GitHub Actions.
 
 > Note: Lab 3 uses the same secret `AZURE_CREDENTIALS` as in Lab 1
+
+## Create Azure Web App
+
+Create the Azure Web App that the pipeline will deploy to. Open Azure Cloud Shell and run the following PowerShell cmdlets:
+
+1. Create the Resource Group `rg-lab-3`
+
+```powershell
+New-AzResourceGroup -Name 'rg-lab-3' -Location 'eastus2'
+```
+
+The ARM template deployment will create a unique name for the Web App and return it on the console under `Outputs`. Make a note of the `uniqueWebAppName` value, we will use it later to configure our GitHub Actions pipeline.
 
 ## Configure GitHub Actions
 
@@ -54,6 +67,20 @@ env:
 9. The last commit to change the Azure Web App name causes a run of the Workflow. Navigate to **Actions** to observe the workflow status.
 
 ![lab_3_workflow_03](images/lab_3_workflow_03.jpg)
+
+---
+
+## Viewing the application
+
+Once the deployment finishes. We can open the application.
+
+Open up a browser and go to `<Azure Web App name>.azurewebsites.net`. Replace `<Azure Web App name>` with the unique name.
+
+![lab_3_workflow_continuous_deployment_00_fullpage](images/lab_3_workflow_continuous_deployment_00_fullpage.jpg)
+
+> Note: It is possible to find the URL in the Workflow's `Deploy to Azure WebApp` task's output
+
+> ![lab_3_workflow_view_application_01_emphasis](images/lab_3_workflow_view_application_01_emphasis.jpg)
 
 ---
 

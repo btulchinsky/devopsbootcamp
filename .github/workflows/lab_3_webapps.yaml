@@ -53,6 +53,8 @@ jobs:
 
       - name: npm test
         run: |
+          pwd
+          cd ${AZURE_WEBAPP_PACKAGE_PATH}
           npm test
 
       - name: test pass message
